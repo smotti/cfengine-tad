@@ -1,0 +1,2193 @@
+{
+  "_meta": {
+    "timestamp": 1432885746
+  }, 
+  "cfengine": {
+    "bootstrapped_to": "192.168.10.2", 
+    "last_agent_run": "2015-05-28 03:55:24 UTC", 
+    "policy_last_updated": "2015-05-28 04:01:45 UTC", 
+    "policy_release_id": "05c0cc909d6709d816521d6cedbc4508894cc497", 
+    "version": "3.6.5"
+  }, 
+  "identity": {
+    "fqdn": "debian-7-amd64-plain.vagrantup.com", 
+    "id": "MD5=ef624c9d9cbb2f785a14649a455950a5", 
+    "uqdn": "debian-7-amd64-plain"
+  }, 
+  "network_interfaces": [
+    {
+      "flags": "up broadcast running multicast", 
+      "ipv4": "10.0.2.15", 
+      "mac": "08:00:27:46:d5:49", 
+      "name": "eth0"
+    }, 
+    {
+      "flags": "up broadcast running multicast", 
+      "ipv4": "192.168.10.2", 
+      "mac": "08:00:27:7f:67:f7", 
+      "name": "eth1"
+    }
+  ], 
+  "network_ports": [
+    {
+      "inet": "ipv4", 
+      "port": "45916", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv4", 
+      "port": "5308", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv4", 
+      "port": "25", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv4", 
+      "port": "22", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv4", 
+      "port": "111", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv4", 
+      "port": "6379", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv6", 
+      "port": "45669", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv6", 
+      "port": "25", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv6", 
+      "port": "22", 
+      "type": "tcp"
+    }, 
+    {
+      "inet": "ipv6", 
+      "port": "111", 
+      "type": "tcp"
+    }
+  ], 
+  "os": {
+    "arch": "x86_64", 
+    "flavor": "debian_7", 
+    "os": "linux", 
+    "release": "3.2.0-4-amd64", 
+    "uptime": "986", 
+    "version": "#1 SMP Debian 3.2.65-1"
+  }, 
+  "software": [
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "acpi", 
+      "version": "1.6-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "acpi-support-base", 
+      "version": "0.140-5+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "acpid", 
+      "version": "1:2.0.16-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "adduser", 
+      "version": "3.113+nmu3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "apt", 
+      "version": "0.9.7.9+deb7u7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "apt-listchanges", 
+      "version": "2.85.11"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "apt-utils", 
+      "version": "0.9.7.9+deb7u7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "aptitude", 
+      "version": "0.6.8.2-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "aptitude-common", 
+      "version": "0.6.8.2-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "at", 
+      "version": "3.1.13-2+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "base-files", 
+      "version": "7.1wheezy8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "base-passwd", 
+      "version": "3.5.26"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bash", 
+      "version": "4.2+dfsg-0.1+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bash-completion", 
+      "version": "1:2.0-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bc", 
+      "version": "1.06.95-2+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bind9-host", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "binutils", 
+      "version": "2.22-8+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bsd-mailx", 
+      "version": "8.1.2-0.20111106cvs-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bsdmainutils", 
+      "version": "9.0.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bsdutils", 
+      "version": "1:2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "busybox", 
+      "version": "1:1.20.0-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "bzip2", 
+      "version": "1.0.6-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ca-certificates", 
+      "version": "20130119+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "cfengine-community", 
+      "version": "3.6.5-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "console-setup", 
+      "version": "1.88"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "console-setup-linux", 
+      "version": "1.88"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "coreutils", 
+      "version": "8.13-3.5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "cpio", 
+      "version": "2.11+dfsg-0.1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "cpp", 
+      "version": "4:4.7.2-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "cpp-4.6", 
+      "version": "4.6.3-14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "cpp-4.7", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "cron", 
+      "version": "3.0pl1-124"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "curl", 
+      "version": "7.26.0-1+wheezy12"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dash", 
+      "version": "0.5.7-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "db5.1-util", 
+      "version": "5.1.29-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dc", 
+      "version": "1.06.95-2+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "debconf", 
+      "version": "1.5.49"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "debconf-i18n", 
+      "version": "1.5.49"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "debian-archive-keyring", 
+      "version": "2014.3~deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "debian-faq", 
+      "version": "5.0.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "debianutils", 
+      "version": "4.3.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dictionaries-common", 
+      "version": "1.12.11"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "diffutils", 
+      "version": "1:3.2-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "discover", 
+      "version": "2.1.2-5.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "discover-data", 
+      "version": "2.2010.10.18"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dkms", 
+      "version": "2.2.0.3-1.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dmidecode", 
+      "version": "2.11-9"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dmsetup", 
+      "version": "2:1.02.74-8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dnsutils", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "doc-debian", 
+      "version": "6.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dpkg", 
+      "version": "1.16.15"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "dpkg-dev", 
+      "version": "1.16.15"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "e2fslibs", 
+      "version": "1.42.5-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "e2fsprogs", 
+      "version": "1.42.5-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "eject", 
+      "version": "2.1.5+deb1+cvs20081104-13"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "exim4", 
+      "version": "4.80-7+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "exim4-base", 
+      "version": "4.80-7+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "exim4-config", 
+      "version": "4.80-7+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "exim4-daemon-light", 
+      "version": "4.80-7+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "fakeroot", 
+      "version": "1.18.4-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "file", 
+      "version": "5.11-2+deb7u7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "findutils", 
+      "version": "4.4.2-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ftp", 
+      "version": "0.17-27"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gcc", 
+      "version": "4:4.7.2-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gcc-4.6", 
+      "version": "4.6.3-14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gcc-4.6-base", 
+      "version": "4.6.3-14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gcc-4.7", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gcc-4.7-base", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "geoip-database", 
+      "version": "20130213-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gettext-base", 
+      "version": "0.18.1.1-9"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "git", 
+      "version": "1:1.7.10.4-1+wheezy1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "git-core", 
+      "version": "1:1.7.10.4-1+wheezy1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "git-man", 
+      "version": "1:1.7.10.4-1+wheezy1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gnupg", 
+      "version": "1.4.12-7+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gpgv", 
+      "version": "1.4.12-7+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "grep", 
+      "version": "2.12-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "groff-base", 
+      "version": "1.21-9"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "grub-common", 
+      "version": "1.99-27+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "grub-pc", 
+      "version": "1.99-27+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "grub-pc-bin", 
+      "version": "1.99-27+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "grub2-common", 
+      "version": "1.99-27+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "gzip", 
+      "version": "1.5-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "host", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "hostname", 
+      "version": "3.11"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "htop", 
+      "version": "1.0.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "iamerican", 
+      "version": "3.3.02-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ibritish", 
+      "version": "3.3.02-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ienglish-common", 
+      "version": "3.3.02-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ifupdown", 
+      "version": "0.7.8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "info", 
+      "version": "4.13a.dfsg.1-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "init-system-helpers", 
+      "version": "1.18~bpo70+1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "initramfs-tools", 
+      "version": "0.109.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "initscripts", 
+      "version": "2.88dsf-41+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "insserv", 
+      "version": "1.14.0-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "install-info", 
+      "version": "4.13a.dfsg.1-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "installation-report", 
+      "version": "2.49"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "iproute", 
+      "version": "20120521-3+b3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "iptables", 
+      "version": "1.4.14-3.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "iputils-ping", 
+      "version": "3:20101006-1+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "isc-dhcp-client", 
+      "version": "4.2.2.dfsg.1-5+deb70u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "isc-dhcp-common", 
+      "version": "4.2.2.dfsg.1-5+deb70u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "iso-codes", 
+      "version": "3.41-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ispell", 
+      "version": "3.3.02-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "kbd", 
+      "version": "1.15.3-9"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "keyboard-configuration", 
+      "version": "1.88"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "klibc-utils", 
+      "version": "2.0.1-3.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "kmod", 
+      "version": "9-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "krb5-locales", 
+      "version": "1.10.1+dfsg-5+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "laptop-detect", 
+      "version": "0.13.7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "less", 
+      "version": "444-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libacl1", 
+      "version": "2.2.51-8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libalgorithm-diff-perl", 
+      "version": "1.19.02-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libalgorithm-diff-xs-perl", 
+      "version": "0.04-2+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libalgorithm-merge-perl", 
+      "version": "0.08-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libapt-inst1.5", 
+      "version": "0.9.7.9+deb7u7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libapt-pkg4.12", 
+      "version": "0.9.7.9+deb7u7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libasprintf0c2", 
+      "version": "0.18.1.1-9"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libattr1", 
+      "version": "1:2.4.46-8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libbind9-80", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libblkid1", 
+      "version": "2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libboost-iostreams1.49.0", 
+      "version": "1.49.0-3.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libbsd0", 
+      "version": "0.4.2-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libbz2-1.0", 
+      "version": "1.0.6-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libc-bin", 
+      "version": "2.13-38+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libc-dev-bin", 
+      "version": "2.13-38+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libc6", 
+      "version": "2.13-38+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libc6-dev", 
+      "version": "2.13-38+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libcap2", 
+      "version": "1:2.22-1.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libclass-isa-perl", 
+      "version": "0.36-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libcomerr2", 
+      "version": "1.42.5-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libcurl3", 
+      "version": "7.26.0-1+wheezy12"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libcurl3-gnutls", 
+      "version": "7.26.0-1+wheezy13"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libcwidget3", 
+      "version": "0.5.16-3.4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libdb5.1", 
+      "version": "5.1.29-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libdbus-1-3", 
+      "version": "1.6.8-1+deb7u5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libdevmapper1.02.1", 
+      "version": "2:1.02.74-8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libdiscover2", 
+      "version": "2.1.2-5.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libdns88", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libdpkg-perl", 
+      "version": "1.16.15"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libedit2", 
+      "version": "2.11-20080614-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libept1.4.12", 
+      "version": "1.0.9"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "liberror-perl", 
+      "version": "0.17-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libevent-2.0-5", 
+      "version": "2.0.19-stable-3+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libexpat1", 
+      "version": "2.1.0-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libfile-fcntllock-perl", 
+      "version": "0.14-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libfreetype6", 
+      "version": "2.4.9-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libfuse2", 
+      "version": "2.9.0-2+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgc1c2", 
+      "version": "1:7.1-9.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgcc1", 
+      "version": "1:4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgcrypt11", 
+      "version": "1.5.0-5+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgdbm3", 
+      "version": "1.8.3-11"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgeoip1", 
+      "version": "1.4.8+dfsg-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgmp10", 
+      "version": "2:5.0.5+dfsg-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgnutls26", 
+      "version": "2.12.20-8+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgomp1", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgpg-error0", 
+      "version": "1.10-3.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgpgme11", 
+      "version": "1.2.0-1.4+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgpm2", 
+      "version": "1.20.4-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgssapi-krb5-2", 
+      "version": "1.10.1+dfsg-5+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libgssglue1", 
+      "version": "0.4-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libidn11", 
+      "version": "1.25-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libisc84", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libisccc80", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libisccfg82", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libitm1", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libjemalloc1", 
+      "version": "3.0.0-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libk5crypto3", 
+      "version": "1.10.1+dfsg-5+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libkeyutils1", 
+      "version": "1.5.5-3+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libklibc", 
+      "version": "2.0.1-3.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libkmod2", 
+      "version": "9-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libkrb5-3", 
+      "version": "1.10.1+dfsg-5+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libkrb5support0", 
+      "version": "1.10.1+dfsg-5+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libldap-2.4-2", 
+      "version": "2.4.31-1+nmu2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "liblocale-gettext-perl", 
+      "version": "1.05-7+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "liblockfile-bin", 
+      "version": "1.09-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "liblockfile1", 
+      "version": "1.09-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "liblwres80", 
+      "version": "1:9.8.4.dfsg.P1-6+nmu2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "liblzma5", 
+      "version": "5.1.1alpha+20120614-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libmagic1", 
+      "version": "5.11-2+deb7u7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libmount1", 
+      "version": "2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libmpc2", 
+      "version": "0.9-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libmpfr4", 
+      "version": "3.1.0-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libncurses5", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libncursesw5", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libnewt0.52", 
+      "version": "0.52.14-11.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libnfnetlink0", 
+      "version": "1.0.0-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libnfsidmap2", 
+      "version": "0.25-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libopts25", 
+      "version": "1:5.12-0.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libp11-kit0", 
+      "version": "0.12-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpam-modules", 
+      "version": "1.1.3-7.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpam-modules-bin", 
+      "version": "1.1.3-7.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpam-runtime", 
+      "version": "1.1.3-7.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpam0g", 
+      "version": "1.1.3-7.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpci3", 
+      "version": "1:3.1.9-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpcre3", 
+      "version": "1:8.30-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpipeline1", 
+      "version": "1.2.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpopt0", 
+      "version": "1.16-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libprocps0", 
+      "version": "1:3.3.3-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libpth20", 
+      "version": "2.0.7-16"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libquadmath0", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libreadline-gplv2-dev", 
+      "version": "5.2+dfsg-2~deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libreadline5", 
+      "version": "5.2+dfsg-2~deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libreadline6", 
+      "version": "6.2+dfsg-0.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "librtmp0", 
+      "version": "2.4+20111222.git4e06e21-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsasl2-2", 
+      "version": "2.1.25.dfsg1-6+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsasl2-modules", 
+      "version": "2.1.25.dfsg1-6+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libselinux1", 
+      "version": "2.1.9-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsemanage-common", 
+      "version": "2.1.6-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsemanage1", 
+      "version": "2.1.6-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsepol1", 
+      "version": "2.1.4-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsigc++-2.0-0c2a", 
+      "version": "2.2.10-0.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libslang2", 
+      "version": "2.2.4-15"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libsqlite3-0", 
+      "version": "3.7.13-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libss2", 
+      "version": "1.42.5-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libssh2-1", 
+      "version": "1.4.2-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libssl-dev", 
+      "version": "1.0.1e-2+deb7u14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libssl-doc", 
+      "version": "1.0.1e-2+deb7u14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libssl1.0.0", 
+      "version": "1.0.1e-2+deb7u14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libstdc++6", 
+      "version": "4.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libswitch-perl", 
+      "version": "2.16-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtasn1-3", 
+      "version": "2.13-2+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtext-charwidth-perl", 
+      "version": "0.04-7+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtext-iconv-perl", 
+      "version": "1.7-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtext-wrapi18n-perl", 
+      "version": "0.06-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtimedate-perl", 
+      "version": "1.2000-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtinfo-dev", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtinfo5", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtirpc1", 
+      "version": "0.2.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libtokyocabinet9", 
+      "version": "1.4.47-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libudev0", 
+      "version": "175-7.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libusb-0.1-4", 
+      "version": "2:0.1.12-20+nmu1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libustr-1.0-1", 
+      "version": "1.0.4-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libuuid-perl", 
+      "version": "0.02-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libuuid1", 
+      "version": "2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libwrap0", 
+      "version": "7.6.q-24"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libx11-6", 
+      "version": "2:1.5.0-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libx11-data", 
+      "version": "2:1.5.0-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxapian22", 
+      "version": "1.2.12-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxau6", 
+      "version": "1:1.0.7-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxcb1", 
+      "version": "1.8.1-2+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxdmcp6", 
+      "version": "1:1.1.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxext6", 
+      "version": "2:1.3.1-2+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxml2", 
+      "version": "2.8.0+dfsg1-7+wheezy2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libxmuu1", 
+      "version": "2:1.1.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "linux-base", 
+      "version": "3.5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "linux-image-3.2.0-4-amd64", 
+      "version": "3.2.65-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "linux-image-amd64", 
+      "version": "3.2+46"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "linux-libc-dev", 
+      "version": "3.2.65-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "locales", 
+      "version": "2.13-38+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "login", 
+      "version": "1:4.1.5.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "logrotate", 
+      "version": "3.8.1-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "lsb-base", 
+      "version": "4.1+Debian8+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "lsb-release", 
+      "version": "4.1+Debian8+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "lsof", 
+      "version": "4.86+dfsg-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "m4", 
+      "version": "1.4.16-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "make", 
+      "version": "3.81-8.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "man-db", 
+      "version": "2.6.2-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "manpages", 
+      "version": "3.44-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "manpages-dev", 
+      "version": "3.44-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "mawk", 
+      "version": "1.3.3-17"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "mime-support", 
+      "version": "3.52-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "mlocate", 
+      "version": "0.23.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "module-init-tools", 
+      "version": "9-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "mount", 
+      "version": "2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "multiarch-support", 
+      "version": "2.13-38+deb7u6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "mutt", 
+      "version": "1.5.21-6.2+deb7u3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "nano", 
+      "version": "2.2.6-1+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ncurses-base", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ncurses-bin", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ncurses-term", 
+      "version": "5.9-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "net-tools", 
+      "version": "1.60-24.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "netbase", 
+      "version": "5.0"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "netcat-traditional", 
+      "version": "1.10-40"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "nfs-common", 
+      "version": "1:1.2.6-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ntp", 
+      "version": "1:4.2.6.p5+dfsg-2+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "openssh-blacklist", 
+      "version": "0.4.1+nmu1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "openssh-blacklist-extra", 
+      "version": "0.4.1+nmu1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "openssh-client", 
+      "version": "1:6.0p1-4+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "openssh-server", 
+      "version": "1:6.0p1-4+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "openssl", 
+      "version": "1.0.1e-2+deb7u14"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "os-prober", 
+      "version": "1.58"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "passwd", 
+      "version": "1:4.1.5.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "patch", 
+      "version": "2.6.1-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "pciutils", 
+      "version": "1:3.1.9-6"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "perl", 
+      "version": "5.14.2-21+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "perl-base", 
+      "version": "5.14.2-21+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "perl-modules", 
+      "version": "5.14.2-21+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "procmail", 
+      "version": "3.22-20+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "procps", 
+      "version": "1:3.3.3-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "psmisc", 
+      "version": "22.19-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python", 
+      "version": "2.7.3-4+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-apt", 
+      "version": "0.8.8.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-apt-common", 
+      "version": "0.8.8.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-chardet", 
+      "version": "2.0.1-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-debian", 
+      "version": "0.1.21"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-debianbts", 
+      "version": "1.11"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-fpconst", 
+      "version": "0.7.2-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-minimal", 
+      "version": "2.7.3-4+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-reportbug", 
+      "version": "6.4.4+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-soappy", 
+      "version": "0.12.0-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python-support", 
+      "version": "1.0.15"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python2.6", 
+      "version": "2.6.8-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python2.6-minimal", 
+      "version": "2.6.8-1.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python2.7", 
+      "version": "2.7.3-6+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "python2.7-minimal", 
+      "version": "2.7.3-6+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "readline-common", 
+      "version": "6.2+dfsg-0.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "redis-server", 
+      "version": "2:2.8.17-1~bpo70+1+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "redis-tools", 
+      "version": "2:2.8.17-1~bpo70+1+b1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "reportbug", 
+      "version": "6.4.4+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "rpcbind", 
+      "version": "0.2.0-8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "rsync", 
+      "version": "3.0.9-4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "rsyslog", 
+      "version": "5.8.11-3+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sed", 
+      "version": "4.2.1-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sensible-utils", 
+      "version": "0.0.7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sgml-base", 
+      "version": "1.26+nmu4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sudo", 
+      "version": "1.8.5p2-1+nmu1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sysv-rc", 
+      "version": "2.88dsf-41+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sysvinit", 
+      "version": "2.88dsf-41+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "sysvinit-utils", 
+      "version": "2.88dsf-41+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "tar", 
+      "version": "1.26+dfsg-0.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "task-english", 
+      "version": "3.14.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "tasksel", 
+      "version": "3.14.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "tasksel-data", 
+      "version": "3.14.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "tcpd", 
+      "version": "7.6.q-24"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "telnet", 
+      "version": "0.17-36"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "texinfo", 
+      "version": "4.13a.dfsg.1-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "time", 
+      "version": "1.7-24"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "tmux", 
+      "version": "1.6-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "traceroute", 
+      "version": "1:2.0.18-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "tzdata", 
+      "version": "2014j-0wheezy1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "ucf", 
+      "version": "3.0025+nmu3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "udev", 
+      "version": "175-7.2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "unzip", 
+      "version": "6.0-8+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "util-linux", 
+      "version": "2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "util-linux-locales", 
+      "version": "2.20.1-5.3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "vim", 
+      "version": "2:7.3.547-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "vim-common", 
+      "version": "2:7.3.547-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "vim-runtime", 
+      "version": "2:7.3.547-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "vim-tiny", 
+      "version": "2:7.3.547-7"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "w3m", 
+      "version": "0.5.3-8"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "wamerican", 
+      "version": "7.1-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "wget", 
+      "version": "1.13.4-3+deb7u2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "whiptail", 
+      "version": "0.52.14-11.1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "whois", 
+      "version": "5.1.1~deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "xauth", 
+      "version": "1:1.0.7-1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "xkb-data", 
+      "version": "2.5.1-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "xml-core", 
+      "version": "0.13+nmu2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "xz-utils", 
+      "version": "5.1.1alpha+20120614-2"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "zlib1g", 
+      "version": "1:1.2.7.dfsg-13"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "zlib1g-dev", 
+      "version": "1:1.2.7.dfsg-13"
+    }
+  ]
+}
