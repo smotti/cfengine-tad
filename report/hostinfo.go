@@ -73,6 +73,12 @@ type (
 	}
 )
 
+// init registers the HostInfo Report with the application.
+func init() {
+    var report *HostInfo
+    Register("hostInfo", report)
+}
+
 // Read implements the Report interface for HostInfo.
 func (h *HostInfo) Read() error {
 	file, err := os.Open(h.Filename)
