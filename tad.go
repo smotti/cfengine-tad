@@ -1,23 +1,26 @@
 package main
 
 import (
-    // stdlib
+	// stdlib
+	"crypto/tls"
 	"flag"
 	"log"
-    "crypto/tls"
 
-    // third party
+	// third party
 	"github.com/nickvanw/ircx"
 	"github.com/sorcix/irc"
 
-    // own
+	// own
+	"github.com/smotti/tad/report"
 )
 
 var (
 	name     = flag.String("name", "tad", "Nick to use in IRC")
 	server   = flag.String("server", "irc.internetz.me:6697", "Host:Port to connect to")
 	channels = flag.String("chan", "#tad", "Channels to join")
-    ssl = flag.Bool("ssl", false, "Use SSL/TLS")
+	ssl      = flag.Bool("ssl", true, "Use SSL/TLS")
+
+	bot *ircx.Bot
 )
 
 func init() {
@@ -25,14 +28,12 @@ func init() {
 }
 
 func main() {
-    var bot *ircx.Bot
-
-    if *ssl {
-        tlsConfig := &tls.Config{InsecureSkipVerify: true}
-	    bot = ircx.WithTLS(*server, *name, tlsConfig)
-    } else {
-        bot = ircx.Classic(*server, *name)
-    }
+	if *ssl {
+		tlsConfig := &tls.Config{InsecureSkipVerify: true}
+		bot = ircx.WithTLS(*server, *name, tlsConfig)
+	} else {
+		bot = ircx.Classic(*server, *name)
+	}
 	if err := bot.Connect(); err != nil {
 		log.Panicln("Unable to dial IRC server ", err)
 	}
@@ -42,11 +43,13 @@ func main() {
 	log.Println("Exiting..")
 }
 
+// RegisterHandlers registers the bots handler functions.
 func RegisterHandlers(bot *ircx.Bot) {
 	bot.AddCallback(irc.RPL_WELCOME, ircx.Callback{Handler: ircx.HandlerFunc(RegisterConnect)})
 	bot.AddCallback(irc.PING, ircx.Callback{Handler: ircx.HandlerFunc(PingHandler)})
 }
 
+// RegisterConnect takes care of joining provided channels.
 func RegisterConnect(s ircx.Sender, m *irc.Message) {
 	s.Send(&irc.Message{
 		Command: irc.JOIN,
@@ -54,6 +57,8 @@ func RegisterConnect(s ircx.Sender, m *irc.Message) {
 	})
 }
 
+// PingHandler responds to PING commands from the server. On some servers the
+// connection might be killed if the client doesn't respond to them.
 func PingHandler(s ircx.Sender, m *irc.Message) {
 	s.Send(&irc.Message{
 		Command:  irc.PONG,
