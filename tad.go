@@ -4,19 +4,20 @@ import (
     // stdlib
 	"flag"
 	"log"
+    "crypto/tls"
 
     // third party
 	"github.com/nickvanw/ircx"
 	"github.com/sorcix/irc"
 
     // own
-    "handle"
 )
 
 var (
 	name     = flag.String("name", "tad", "Nick to use in IRC")
-	server   = flag.String("server", "irc.internetz.me:6667", "Host:Port to connect to")
+	server   = flag.String("server", "irc.internetz.me:6697", "Host:Port to connect to")
 	channels = flag.String("chan", "#tad", "Channels to join")
+    ssl = flag.Bool("ssl", false, "Use SSL/TLS")
 )
 
 func init() {
@@ -24,7 +25,14 @@ func init() {
 }
 
 func main() {
-	bot := ircx.Classic(*server, *name)
+    var bot *ircx.Bot
+
+    if *ssl {
+        tlsConfig := &tls.Config{InsecureSkipVerify: true}
+	    bot = ircx.WithTLS(*server, *name, tlsConfig)
+    } else {
+        bot = ircx.Classic(*server, *name)
+    }
 	if err := bot.Connect(); err != nil {
 		log.Panicln("Unable to dial IRC server ", err)
 	}
