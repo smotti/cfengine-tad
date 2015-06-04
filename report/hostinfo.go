@@ -155,3 +155,13 @@ func (d *networkInterface) ToString() string {
 	}
 	return strings.Join(fields, ", ")
 }
+
+// ToString for type networkPort.
+func (d *networkPort) ToString() string {
+	fields := []string{
+		"port: " + d.Port,
+		"protocol: " + d.Protocol,
+		"inet: " + d.Inet,
+	}
+	return strings.Join(fields, ", ")
+}

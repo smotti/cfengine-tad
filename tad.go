@@ -79,6 +79,9 @@ func RegisterHandlers(bot *ircx.Bot) {
 	bot.AddCallback("CMD_NET_IF", ircx.Callback{
 		Handler: ircx.HandlerFunc(handle.CmdNetIf),
 	})
+	bot.AddCallback("CMD_NET_PORTS", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdNetPorts),
+	})
 }
 
 // RegisterConnect takes care of joining provided channels.

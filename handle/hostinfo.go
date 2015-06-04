@@ -83,3 +83,22 @@ func CmdNetIf(s ircx.Sender, m *irc.Message) {
 		time.Sleep(500 * time.Millisecond)
 	}
 }
+
+// CmdNetPorts handle the CMD_NET_PORTS bot command.
+func CmdNetPorts(s ircx.Sender, m *irc.Message) {
+	r := report.Reports["hostInfo"].(*report.HostInfo)
+
+	for _, v := range r.Ports {
+		msg := v.ToString()
+
+		s.Send(&irc.Message{
+			Command:  irc.PRIVMSG,
+			Params:   Params(m),
+			Trailing: msg,
+		})
+
+		// Need to wait before sending the next msg, or else we will get
+		// blocked by the IRC server.
+		time.Sleep(500 * time.Millisecond)
+	}
+}
