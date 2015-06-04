@@ -22,6 +22,7 @@ func CmdHostOs(s ircx.Sender, m *irc.Message) {
 
 	s.Send(&irc.Message{
 		Command:  irc.PRIVMSG,
+		Params:   Params(m),
 		Trailing: msg,
 	})
 }
@@ -40,6 +41,7 @@ func CmdHostId(s ircx.Sender, m *irc.Message) {
 
 	s.Send(&irc.Message{
 		Command:  irc.PRIVMSG,
+		Params:   Params(m),
 		Trailing: msg,
 	})
 }
