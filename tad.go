@@ -21,12 +21,12 @@ var (
 	ssl      = flag.Bool("ssl", true, "Use SSL/TLS")
 
 	cmd = map[string]string{
-		"CMD_HOST_OS":        "^!host os$",
-		"CMD_HOST_CFE":       "^!host cfe$",
-		"CMD_HOST_ID":        "^!host id$",
-		"CMD_HOST_NET_IF":    "^!host net-if$",
-		"CMD_HOST_NET_PORTS": "^!host net-ports$",
-		"CMD_HOST_SW":        "^!host sw$",
+		"CMD_OS":        "^!os$",
+		"CMD_CFE":       "^!cfe$",
+		"CMD_ID":        "^!id$",
+		"CMD_NET_IF":    "^!net if$",
+		"CMD_NET_PORTS": "^!net ports$",
+		"CMD_SW":        "^!sw$",
 	}
 
 	bot *ircx.Bot
@@ -64,14 +64,14 @@ func RegisterHandlers(bot *ircx.Bot) {
 	bot.AddCallback(irc.PRIVMSG, ircx.Callback{
 		Handler: ircx.HandlerFunc(PrivMsgHandler),
 	})
-	bot.AddCallback("CMD_HOST_OS", ircx.Callback{
-		Handler: ircx.HandlerFunc(handle.CmdHostOs),
+	bot.AddCallback("CMD_OS", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdOs),
 	})
-	bot.AddCallback("CMD_HOST_CFE", ircx.Callback{
-		Handler: ircx.HandlerFunc(handle.CmdHostCfe),
+	bot.AddCallback("CMD_CFE", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdCfe),
 	})
-	bot.AddCallback("CMD_HOST_ID", ircx.Callback{
-		Handler: ircx.HandlerFunc(handle.CmdHostId),
+	bot.AddCallback("CMD_ID", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdId),
 	})
 }
 
