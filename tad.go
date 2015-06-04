@@ -67,6 +67,9 @@ func RegisterHandlers(bot *ircx.Bot) {
 	bot.AddCallback("CMD_HOST_OS", ircx.Callback{
 		Handler: ircx.HandlerFunc(handle.CmdHostOs),
 	})
+	bot.AddCallback("CMD_HOST_CFE", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdHostCfe),
+	})
 	bot.AddCallback("CMD_HOST_ID", ircx.Callback{
 		Handler: ircx.HandlerFunc(handle.CmdHostId),
 	})

@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"os"
 	"strings"
+
+	"github.com/smotti/tad/config"
 )
 
 type (
@@ -74,6 +76,16 @@ type (
 	}
 )
 
+// init registers the report at application startup.
+func init() {
+	var r Report
+	r = &HostInfo{
+		Filename: config.HostInfoReport,
+	}
+
+	Register("hostInfo", r)
+}
+
 // Read implements the Report interface for HostInfo.
 func (h *HostInfo) Read() error {
 	file, err := os.Open(h.Filename)
@@ -106,6 +118,18 @@ func (d *identity) ToString() string {
 		"fqdn: " + d.Fqdn,
 		"id: " + d.Id,
 		"uqdn: " + d.Uqdn,
+	}
+	return strings.Join(fields, ", ")
+}
+
+// ToString for type cfengine.
+func (d *cfengine) ToString() string {
+	fields := []string{
+		"bootstrappedTo: " + d.BootstrappedTo,
+		"lastAgentRun: " + d.LastAgentRun,
+		"policyLastUpdated: " + d.PolicyLastUpdated,
+		"policyReleaseId: " + d.PolicyReleaseId,
+		"version: " + d.Version,
 	}
 	return strings.Join(fields, ", ")
 }
