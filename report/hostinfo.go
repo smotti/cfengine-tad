@@ -133,3 +133,25 @@ func (d *cfengine) ToString() string {
 	}
 	return strings.Join(fields, ", ")
 }
+
+// ToString for type software.
+func (d *software) ToString() string {
+	fields := []string{
+		"name: " + d.Name,
+		"arch: " + d.Arch,
+		"method: " + d.Method,
+		"version: " + d.Version,
+	}
+	return strings.Join(fields, ", ")
+}
+
+// ToString for type networkInterface.
+func (d *networkInterface) ToString() string {
+	fields := []string{
+		"name: " + d.Name,
+		"mac: " + d.Mac,
+		"ipv4: " + d.Ipv4,
+		"flags: " + d.Flags,
+	}
+	return strings.Join(fields, ", ")
+}
