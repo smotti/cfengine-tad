@@ -3,6 +3,7 @@ package report
 import (
 	"encoding/json"
 	"os"
+    "strings"
 )
 
 type (
@@ -73,12 +74,6 @@ type (
 	}
 )
 
-// init registers the HostInfo Report with the application.
-func init() {
-    var report *HostInfo
-    Register("hostInfo", report)
-}
-
 // Read implements the Report interface for HostInfo.
 func (h *HostInfo) Read() error {
 	file, err := os.Open(h.Filename)
@@ -90,4 +85,17 @@ func (h *HostInfo) Read() error {
 	err = json.NewDecoder(file).Decode(h)
 
 	return err
+}
+
+// ToString for _os struct.
+func (d *_os) ToString() string {
+    fields := []string{
+        "arch: " + d.Arch,
+        "flavor: " + d.Flavor,
+        "os: " + d.Os,
+        "release: " + d.Release,
+        "uptime: " + d.Uptime,
+        "version: " + d.Version,
+    }
+    return strings.Join(fields, ", ")
 }
