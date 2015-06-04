@@ -61,7 +61,7 @@ func CmdSw(s ircx.Sender, m *irc.Message) {
 
 		// Need to wait before sending the next msg, or else we will get
 		// blocked by the IRC server.
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(500 * time.Millisecond)
 	}
 }
 
