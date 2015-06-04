@@ -3,7 +3,7 @@ package report
 import (
 	"encoding/json"
 	"os"
-    "strings"
+	"strings"
 )
 
 type (
@@ -87,15 +87,25 @@ func (h *HostInfo) Read() error {
 	return err
 }
 
-// ToString for _os struct.
+// ToString for type _os.
 func (d *_os) ToString() string {
-    fields := []string{
-        "arch: " + d.Arch,
-        "flavor: " + d.Flavor,
-        "os: " + d.Os,
-        "release: " + d.Release,
-        "uptime: " + d.Uptime,
-        "version: " + d.Version,
-    }
-    return strings.Join(fields, ", ")
+	fields := []string{
+		"arch: " + d.Arch,
+		"flavor: " + d.Flavor,
+		"os: " + d.Os,
+		"release: " + d.Release,
+		"uptime: " + d.Uptime,
+		"version: " + d.Version,
+	}
+	return strings.Join(fields, ", ")
+}
+
+// ToString for type identity.
+func (d *identity) ToString() string {
+	fields := []string{
+		"fqdn: " + d.Fqdn,
+		"id: " + d.Id,
+		"uqdn: " + d.Uqdn,
+	}
+	return strings.Join(fields, ", ")
 }

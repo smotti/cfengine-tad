@@ -7,12 +7,11 @@ import (
 	"log"
 
 	// third party
-//	"github.com/nickvanw/ircx"
 	"github.com/sorcix/irc"
 
 	// own
-    "github.com/smotti/ircx"
-    "github.com/smotti/tad/handle"
+	"github.com/smotti/ircx"
+	"github.com/smotti/tad/handle"
 )
 
 var (
@@ -21,14 +20,14 @@ var (
 	channels = flag.String("chan", "#tad", "Channels to join")
 	ssl      = flag.Bool("ssl", true, "Use SSL/TLS")
 
-    cmd = map[string]string{
-        "CMD_HOST_OS": "^!host os$",
-        "CMD_HOST_CFE": "^!host cfe$",
-        "CMD_HOST_ID": "^!host id$",
-        "CMD_HOST_NET_IF": "^!host net-if$",
-        "CMD_HOST_NET_PORTS": "^!host net-ports$",
-        "CMD_HOST_SW": "^!host sw$",
-    }
+	cmd = map[string]string{
+		"CMD_HOST_OS":        "^!host os$",
+		"CMD_HOST_CFE":       "^!host cfe$",
+		"CMD_HOST_ID":        "^!host id$",
+		"CMD_HOST_NET_IF":    "^!host net-if$",
+		"CMD_HOST_NET_PORTS": "^!host net-ports$",
+		"CMD_HOST_SW":        "^!host sw$",
+	}
 
 	bot *ircx.Bot
 )
@@ -48,7 +47,7 @@ func main() {
 		log.Panicln("Unable to dial IRC server ", err)
 	}
 
-    bot.Commands = cmd
+	bot.Commands = cmd
 	RegisterHandlers(bot)
 	bot.CallbackLoop()
 	log.Println("Exiting..")
@@ -56,11 +55,21 @@ func main() {
 
 // RegisterHandlers registers the bots handler functions.
 func RegisterHandlers(bot *ircx.Bot) {
-	bot.AddCallback(irc.RPL_WELCOME, ircx.Callback{Handler: ircx.HandlerFunc(RegisterConnect)})
-	bot.AddCallback(irc.PING, ircx.Callback{Handler: ircx.HandlerFunc(PingHandler)})
-    bot.AddCallback(irc.PRIVMSG, ircx.Callback{Handler: ircx.HandlerFunc(PrivMsgHandler)})
-    bot.AddCallback("CMD_HOST_OS", ircx.Callback{Handler: ircx.HandlerFunc(handle.CmdHostOs)})
-    bot.AddCallback("CMD_HOST_ID", ircx.Callback{Handler: ircx.HandlerFunc(handle.CmdHostId)})
+	bot.AddCallback(irc.RPL_WELCOME, ircx.Callback{
+		Handler: ircx.HandlerFunc(RegisterConnect),
+	})
+	bot.AddCallback(irc.PING, ircx.Callback{
+		Handler: ircx.HandlerFunc(PingHandler),
+	})
+	bot.AddCallback(irc.PRIVMSG, ircx.Callback{
+		Handler: ircx.HandlerFunc(PrivMsgHandler),
+	})
+	bot.AddCallback("CMD_HOST_OS", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdHostOs),
+	})
+	bot.AddCallback("CMD_HOST_ID", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdHostId),
+	})
 }
 
 // RegisterConnect takes care of joining provided channels.
@@ -83,5 +92,5 @@ func PingHandler(s ircx.Sender, m *irc.Message) {
 
 // PrivMsgHandler logs incoming PRIVMSGs.
 func PrivMsgHandler(s ircx.Sender, m *irc.Message) {
-    log.Println(m.String())
+	log.Println(m.String())
 }
