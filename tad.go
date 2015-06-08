@@ -3,7 +3,6 @@ package main
 import (
 	// stdlib
 	"crypto/tls"
-	"flag"
 	"log"
 
 	// third party
@@ -11,15 +10,11 @@ import (
 
 	// own
 	"github.com/smotti/ircx"
+	"github.com/smotti/tad/config"
 	"github.com/smotti/tad/handle"
 )
 
 var (
-	name     = flag.String("name", "tad", "Nick to use in IRC")
-	server   = flag.String("server", "irc.internetz.me:6697", "Host:Port to connect to")
-	channels = flag.String("chan", "#tad", "Channels to join")
-	ssl      = flag.Bool("ssl", true, "Use SSL/TLS")
-
 	cmd = map[string]string{
 		"CMD_OS":        "^!os$",
 		"CMD_CFE":       "^!cfe$",
@@ -33,22 +28,29 @@ var (
 	bot *ircx.Bot
 )
 
-func init() {
-	flag.Parse()
-}
-
 func main() {
-	if *ssl {
+	// Establish the connection to the given irc server.
+	if *config.Ssl {
 		tlsConfig := &tls.Config{InsecureSkipVerify: true}
-		bot = ircx.WithTLS(*server, *name, tlsConfig)
+		bot = ircx.WithTLS(*config.Server, *config.Name, tlsConfig)
 	} else {
-		bot = ircx.Classic(*server, *name)
+		bot = ircx.Classic(*config.Server, *config.Name)
 	}
 	if err := bot.Connect(); err != nil {
 		log.Panicln("Unable to dial IRC server ", err)
 	}
 
+	// Assign the boot commands.
 	bot.Commands = cmd
+
+	// Set the listenChannel option based on the value of the flag.
+	bot.Options = map[string]bool{
+		"rejoin":        bot.Options["rejoin"],
+		"connectd":      bot.Options["connected"],
+		"listenChannel": *config.Listen,
+	}
+
+	// Register command handlers and start callback loop.
 	RegisterHandlers(bot)
 	bot.CallbackLoop()
 	log.Println("Exiting..")
@@ -92,7 +94,7 @@ func RegisterHandlers(bot *ircx.Bot) {
 func RegisterConnect(s ircx.Sender, m *irc.Message) {
 	s.Send(&irc.Message{
 		Command: irc.JOIN,
-		Params:  []string{*channels},
+		Params:  []string{*config.Channels},
 	})
 }
 
