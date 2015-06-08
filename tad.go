@@ -93,6 +93,9 @@ func RegisterHandlers(bot *ircx.Bot) {
 	bot.AddCallback("CMD_CL_LIST", ircx.Callback{
 		Handler: ircx.HandlerFunc(handle.CmdClList),
 	})
+	bot.AddCallback("CMD_CL_SEARCH", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdClSearch),
+	})
 }
 
 // RegisterConnect takes care of joining provided channels.
