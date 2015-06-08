@@ -25,6 +25,7 @@ var (
 		"CMD_SW_SEARCH": "^!sw ([a-z0-9\\-_]+)$",
 		"CMD_CL_LIST":   "^!cl$",
 		"CMD_CL_SEARCH": "^!cl ([a-z0-9\\-_]+)$",
+		"CMD_P_LIST":    "^!p$",
 	}
 
 	bot *ircx.Bot
@@ -95,6 +96,9 @@ func RegisterHandlers(bot *ircx.Bot) {
 	})
 	bot.AddCallback("CMD_CL_SEARCH", ircx.Callback{
 		Handler: ircx.HandlerFunc(handle.CmdClSearch),
+	})
+	bot.AddCallback("CMD_P_LIST", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdPList),
 	})
 }
 

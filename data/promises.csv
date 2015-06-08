@@ -1,4 +1,4 @@
-line1_0 ;; line1_1 ;; line1_2 ;; line1_3
-line2_0 ;; line2_1 ;; line2_2 ;; line2_3
-line3_0 ;; line3_1 ;; line3_2 ;; line3_3
-line4_0 ;; line4_1 ;; line4_2 ;; line4_3
+class1_0, handler1_1, promiser1_2, kept1_3
+class2_0, handler2_1, promiser2_2, failed2_3
+class3_0, handler3_1, promiser3_2, repaired3_3
+class4_0, handler4_1, promiser4_2, kept4_3
