@@ -3,7 +3,6 @@ package report
 import (
 	"bufio"
 	"io"
-	"log"
 	"os"
 
 	"github.com/smotti/tad/config"
@@ -40,7 +39,7 @@ func (c *Context) Read() error {
 		c.Classes = append(c.Classes, scanner.Text())
 	}
 	if err := scanner.Err(); err != nil && err != io.EOF {
-		log.Println("Error:", err)
+		return err
 	}
 
 	return nil
