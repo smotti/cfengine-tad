@@ -12,6 +12,9 @@ var (
 	Channels = flag.String("chan", "#tad", "Channels to join")
 	Ssl      = flag.Bool("ssl", false, "Use SSL/TLS")
 	Listen   = flag.Bool("listenChannel", false, "Listen for command on public channels")
+	HostInfo = flag.String("hostInfo", "./data/va_host_info_report.json", "Path to host info report")
+	Promises = flag.String("promises", "./data/promises.csv", "Path to promises report")
+	Classes  = flag.String("classes", "./data/classes.txt", "Path to classes report")
 )
 
 const (
