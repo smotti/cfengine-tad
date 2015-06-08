@@ -80,7 +80,7 @@ type (
 func init() {
 	var r Report
 	r = &HostInfo{
-		Filename: config.HostInfoReport,
+		Filename: *config.HostInfo,
 	}
 
 	Register("hostInfo", r)

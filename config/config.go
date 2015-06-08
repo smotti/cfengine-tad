@@ -17,10 +17,6 @@ var (
 	Classes  = flag.String("classes", "./data/classes.txt", "Path to classes report")
 )
 
-const (
-	HostInfoReport = "./data/va_host_info_report.json"
-)
-
 func init() {
 	iniflags.Parse()
 }
