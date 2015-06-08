@@ -23,6 +23,8 @@ var (
 		"CMD_NET_PORTS": "^!net ports$",
 		"CMD_SW":        "^!sw$",
 		"CMD_SW_SEARCH": "^!sw ([a-z0-9\\-_]+)$",
+		"CMD_CL_LIST":   "^!cl$",
+		"CMD_CL_SEARCH": "^!cl ([a-z0-9\\-_]+)$",
 	}
 
 	bot *ircx.Bot
@@ -87,6 +89,9 @@ func RegisterHandlers(bot *ircx.Bot) {
 	})
 	bot.AddCallback("CMD_SW_SEARCH", ircx.Callback{
 		Handler: ircx.HandlerFunc(handle.CmdSwSearch),
+	})
+	bot.AddCallback("CMD_CL_LIST", ircx.Callback{
+		Handler: ircx.HandlerFunc(handle.CmdClList),
 	})
 }
 
