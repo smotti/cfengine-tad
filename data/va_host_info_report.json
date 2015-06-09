@@ -1,18 +1,18 @@
 {
   "_meta": {
-    "timestamp": 1432885746
+    "timestamp": 1433824107
   }, 
   "cfengine": {
-    "bootstrapped_to": "192.168.10.2", 
-    "last_agent_run": "2015-05-28 03:55:24 UTC", 
-    "policy_last_updated": "2015-05-28 04:01:45 UTC", 
+    "bootstrapped_to": "192.168.100.3", 
+    "last_agent_run": "2015-06-09 03:44:01 UTC", 
+    "policy_last_updated": "2015-06-09 04:28:25 UTC", 
     "policy_release_id": "05c0cc909d6709d816521d6cedbc4508894cc497", 
     "version": "3.6.5"
   }, 
   "identity": {
-    "fqdn": "debian-7-amd64-plain.vagrantup.com", 
-    "id": "MD5=ef624c9d9cbb2f785a14649a455950a5", 
-    "uqdn": "debian-7-amd64-plain"
+    "fqdn": "cfe-hub", 
+    "id": "MD5=46c76285d385fc47d394b9e7a2ebafb9", 
+    "uqdn": "cfe-hub"
   }, 
   "network_interfaces": [
     {
@@ -23,15 +23,15 @@
     }, 
     {
       "flags": "up broadcast running multicast", 
-      "ipv4": "192.168.10.2", 
-      "mac": "08:00:27:7f:67:f7", 
+      "ipv4": "192.168.100.3", 
+      "mac": "08:00:27:c8:05:f9", 
       "name": "eth1"
     }
   ], 
   "network_ports": [
     {
       "inet": "ipv4", 
-      "port": "45916", 
+      "port": "33895", 
       "type": "tcp"
     }, 
     {
@@ -55,13 +55,8 @@
       "type": "tcp"
     }, 
     {
-      "inet": "ipv4", 
-      "port": "6379", 
-      "type": "tcp"
-    }, 
-    {
       "inet": "ipv6", 
-      "port": "45669", 
+      "port": "37639", 
       "type": "tcp"
     }, 
     {
@@ -85,7 +80,7 @@
     "flavor": "debian_7", 
     "os": "linux", 
     "release": "3.2.0-4-amd64", 
-    "uptime": "986", 
+    "uptime": "22", 
     "version": "#1 SMP Debian 3.2.65-1"
   }, 
   "software": [
@@ -512,24 +507,6 @@
     {
       "arch": "default", 
       "method": "dpkg", 
-      "name": "git", 
-      "version": "1:1.7.10.4-1+wheezy1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
-      "name": "git-core", 
-      "version": "1:1.7.10.4-1+wheezy1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
-      "name": "git-man", 
-      "version": "1:1.7.10.4-1+wheezy1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
       "name": "gnupg", 
       "version": "1.4.12-7+deb7u6"
     }, 
@@ -596,12 +573,6 @@
     {
       "arch": "default", 
       "method": "dpkg", 
-      "name": "htop", 
-      "version": "1.0.1-1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
       "name": "iamerican", 
       "version": "3.3.02-6"
     }, 
@@ -628,12 +599,6 @@
       "method": "dpkg", 
       "name": "info", 
       "version": "4.13a.dfsg.1-10"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
-      "name": "init-system-helpers", 
-      "version": "1.18~bpo70+1"
     }, 
     {
       "arch": "default", 
@@ -878,12 +843,6 @@
     {
       "arch": "default", 
       "method": "dpkg", 
-      "name": "libcurl3-gnutls", 
-      "version": "7.26.0-1+wheezy13"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
       "name": "libcwidget3", 
       "version": "0.5.16-3.4"
     }, 
@@ -938,12 +897,6 @@
     {
       "arch": "default", 
       "method": "dpkg", 
-      "name": "liberror-perl", 
-      "version": "0.17-1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
       "name": "libevent-2.0-5", 
       "version": "2.0.19-stable-3+deb7u1"
     }, 
@@ -952,6 +905,12 @@
       "method": "dpkg", 
       "name": "libexpat1", 
       "version": "2.1.0-1+deb7u1"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libffi5", 
+      "version": "3.0.10-3"
     }, 
     {
       "arch": "default", 
@@ -1000,6 +959,18 @@
       "method": "dpkg", 
       "name": "libgeoip1", 
       "version": "1.4.8+dfsg-3"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libglib2.0-0", 
+      "version": "2.33.12+really2.32.4-5"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "libglib2.0-data", 
+      "version": "2.33.12+really2.32.4-5"
     }, 
     {
       "arch": "default", 
@@ -1078,12 +1049,6 @@
       "method": "dpkg", 
       "name": "libitm1", 
       "version": "4.7.2-5"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
-      "name": "libjemalloc1", 
-      "version": "3.0.0-3"
     }, 
     {
       "arch": "default", 
@@ -1652,6 +1617,18 @@
     {
       "arch": "default", 
       "method": "dpkg", 
+      "name": "mc", 
+      "version": "3:4.8.3-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "mc-data", 
+      "version": "3:4.8.3-10"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
       "name": "mime-support", 
       "version": "3.52-1+deb7u1"
     }, 
@@ -1928,18 +1905,6 @@
     {
       "arch": "default", 
       "method": "dpkg", 
-      "name": "redis-server", 
-      "version": "2:2.8.17-1~bpo70+1+b1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
-      "name": "redis-tools", 
-      "version": "2:2.8.17-1~bpo70+1+b1"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
       "name": "reportbug", 
       "version": "6.4.4+deb7u1"
     }, 
@@ -1978,6 +1943,12 @@
       "method": "dpkg", 
       "name": "sgml-base", 
       "version": "1.26+nmu4"
+    }, 
+    {
+      "arch": "default", 
+      "method": "dpkg", 
+      "name": "shared-mime-info", 
+      "version": "1.0-1+b1"
     }, 
     {
       "arch": "default", 
@@ -2102,19 +2073,7 @@
     {
       "arch": "default", 
       "method": "dpkg", 
-      "name": "vim", 
-      "version": "2:7.3.547-7"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
       "name": "vim-common", 
-      "version": "2:7.3.547-7"
-    }, 
-    {
-      "arch": "default", 
-      "method": "dpkg", 
-      "name": "vim-runtime", 
       "version": "2:7.3.547-7"
     }, 
     {

@@ -1,6 +1,0 @@
-linux
-debian
-debian_8
-debian_8_1
-copy_file_kept
-process_apache2_failed
