@@ -55,13 +55,19 @@ func CmdPSearch(s ircx.Sender, m *irc.Message) {
 			continue
 		}
 
+		mpromisee, err := regexp.MatchString(search, v.Promisee)
+		if err != nil {
+			log.Println("Error:", err)
+			continue
+		}
+
 		moutcome, err := regexp.MatchString(search, v.Outcome)
 		if err != nil {
 			log.Println("Error:", err)
 			continue
 		}
 
-		if mclass || mhandler || mpromiser || moutcome {
+		if mclass || mhandler || mpromiser || mpromisee || moutcome {
 			s.Send(&irc.Message{
 				Command:  irc.PRIVMSG,
 				Params:   Params(m),

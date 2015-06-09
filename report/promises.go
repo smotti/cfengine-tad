@@ -13,6 +13,7 @@ type (
 		Class    string
 		Handler  string
 		Promiser string
+		Promisee string
 		Outcome  string
 	}
 
@@ -41,7 +42,8 @@ func (p *Promises) Read() error {
 	defer file.Close()
 
 	rdr := csv.NewReader(file)
-	rdr.FieldsPerRecord = 4
+	rdr.Comma = ';'
+	rdr.FieldsPerRecord = 5
 	rdr.TrimLeadingSpace = true
 
 	records, err := rdr.ReadAll()
@@ -56,7 +58,8 @@ func (p *Promises) Read() error {
 				Class:    record[0],
 				Handler:  record[1],
 				Promiser: record[2],
-				Outcome:  record[3],
+				Promisee: record[3],
+				Outcome:  record[4],
 			})
 	}
 
@@ -65,5 +68,5 @@ func (p *Promises) Read() error {
 
 // ToString returns the Promise struct as a string.
 func (p *Promise) ToString() string {
-	return "class: " + p.Class + ", handler: " + p.Handler + ", promiser: " + p.Promiser + ", outcome: " + p.Outcome
+	return "class: " + p.Class + ", handler: " + p.Handler + ", promiser: " + p.Promiser + ", promisee: " + p.Promisee + ", outcome: " + p.Outcome
 }
