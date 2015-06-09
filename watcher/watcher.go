@@ -12,13 +12,11 @@ import (
 	"github.com/smotti/tad/config"
 )
 
-const FILE_TYPES = ".*\\.(json|txt|csv|log)"
-
 type (
 	// File is represents a file in the dir watched by a Watcher.
 	File struct {
 		Name     string
-		Checksum string // MD5 checksum of the file's content.
+		Checksum []byte // MD5 checksum of the file's content.
 	}
 
 	// Watcher keeps an eye on files within a specified dir.
@@ -28,19 +26,10 @@ type (
 	}
 )
 
-func init() {
-	files, err := createFileList(*config.Watch)
-	if err != nil {
-		log.Fatalln("Error:", err)
-	}
+const FILE_TYPES = ".*\\.(json|txt|csv|log)"
 
-	for _, v := range files {
-		sum, err := calcHashSum(v)
-		if err != nil {
-			log.Println("Error:", err)
-		}
-		log.Printf("%x", sum)
-	}
+func init() {
+	watcher := NewWatcher(*config.Watch)
 }
 
 // createFileList creates a list of files within the given directory and returns
@@ -79,7 +68,6 @@ func createFileList(s string) ([]string, error) {
 			}
 			if matched {
 				files = append(files, dir.Name()+"/"+f.Name())
-				log.Println(dir.Name() + "/" + f.Name())
 			}
 		}
 	}
@@ -113,5 +101,20 @@ func calcHashSum(s string) ([]byte, error) {
 }
 
 // NewWatcher create a new watcher for the given directory.
-//func NewWatcher(dir string) *Watcher {
-//}
+func NewWatcher(dir string) *Watcher {
+	files, err := createFileList(dir)
+	if err != nil {
+		log.Fatalln("Error:", err)
+	}
+
+	watcher := &Watcher{Dir: dir}
+	for _, f := range files {
+		h, err := calcHashSum(f)
+		if err != nil {
+			log.Println("Error:", err)
+		}
+		watcher.Files = append(watcher.Files, &File{Name: f, Checksum: h})
+	}
+
+	return watcher
+}
