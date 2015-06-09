@@ -62,3 +62,8 @@ func (p *Promises) Read() error {
 
 	return nil
 }
+
+// ToString returns the Promise struct as a string.
+func (p *Promise) ToString() string {
+	return "class: " + p.Class + ", handler: " + p.Handler + ", promiser: " + p.Promiser + ", outcome: " + p.Outcome
+}
