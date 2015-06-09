@@ -1,6 +1,9 @@
 package watcher
 
 import (
+	"bufio"
+	"crypto/md5"
+	"io"
 	"log"
 	"os"
 	"regexp"
@@ -11,16 +14,32 @@ import (
 
 const FILE_TYPES = ".*\\.(json|txt|csv|log)"
 
-// watcher keeps an eye on files within a specified dir.
-type Watcher struct {
-	Dir   string   // The directory to watch.
-	Files []string // A list of files within the directory.
-}
+type (
+	// File is represents a file in the dir watched by a Watcher.
+	File struct {
+		Name     string
+		Checksum string // MD5 checksum of the file's content.
+	}
+
+	// Watcher keeps an eye on files within a specified dir.
+	Watcher struct {
+		Dir   string  // The directory to watch.
+		Files []*File // A list of files within the directory.
+	}
+)
 
 func init() {
-	_, err := createFileList(*config.Watch)
+	files, err := createFileList(*config.Watch)
 	if err != nil {
 		log.Fatalln("Error:", err)
+	}
+
+	for _, v := range files {
+		sum, err := calcHashSum(v)
+		if err != nil {
+			log.Println("Error:", err)
+		}
+		log.Printf("%x", sum)
 	}
 }
 
@@ -66,6 +85,31 @@ func createFileList(s string) ([]string, error) {
 	}
 
 	return files, nil
+}
+
+// calcHashSum uses the MD5 hash algorithm to calculate a hash sum of the
+// content for the given file. It returns the sum as a byte slice.
+func calcHashSum(s string) ([]byte, error) {
+	// Open the file.
+	file, err := os.Open(s)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	// Get a new hash value.
+	h := md5.New()
+
+	// Read line by line and add to the hash sum.
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		if err := scanner.Err(); err != nil {
+			return nil, err
+		}
+		io.WriteString(h, scanner.Text())
+	}
+
+	return h.Sum(nil), nil
 }
 
 // NewWatcher create a new watcher for the given directory.
