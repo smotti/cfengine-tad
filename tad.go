@@ -12,6 +12,7 @@ import (
 	"github.com/smotti/ircx"
 	"github.com/smotti/tad/config"
 	"github.com/smotti/tad/handle"
+	_ "github.com/smotti/tad/watcher"
 )
 
 var (

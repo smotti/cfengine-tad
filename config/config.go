@@ -15,6 +15,7 @@ var (
 	HostInfo = flag.String("hostInfo", "./data/va_host_info_report.json", "Path to host info report")
 	Promises = flag.String("promises", "./data/promises_outcome.log", "Path to promises report")
 	Classes  = flag.String("classes", "./data/classes.log", "Path to classes report")
+	Watch    = flag.String("watch", "./data/", "Path to dir whose files should be watch for changes")
 )
 
 func init() {
