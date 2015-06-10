@@ -61,6 +61,11 @@ func main() {
 	// Watch report for changes.
 	for _, v := range report.Reports {
 		v.Watch(bot.Data)
+
+		switch v.(type) {
+		case *report.Promises:
+			v.(*report.Promises).Notify(bot.Data)
+		}
 	}
 
 	// Start callback loop.

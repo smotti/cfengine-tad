@@ -146,6 +146,31 @@ func (p *Promises) Watch(c chan *irc.Message) {
 // Notify starts a go routine to send notifications about repaired and failed
 // promises to irc every config.notifyInterval.
 func (p *Promises) Notify(c chan *irc.Message) {
+	go func() {
+		for {
+			time.Sleep(*config.NotifyInterval * time.Second)
+
+			if *config.NotifyRepaired {
+				for _, v := range p.Repaired {
+					c <- &irc.Message{
+						Command:  irc.PRIVMSG,
+						Params:   []string{*config.Channels},
+						Trailing: v.ToString(),
+					}
+				}
+			}
+
+			if *config.NotifyFailed {
+				for _, v := range p.Failed {
+					c <- &irc.Message{
+						Command:  irc.PRIVMSG,
+						Params:   []string{*config.Channels},
+						Trailing: v.ToString(),
+					}
+				}
+			}
+		}
+	}()
 }
 
 // ToString returns the Promise struct as a string.
