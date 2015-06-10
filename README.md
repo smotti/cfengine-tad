@@ -6,7 +6,7 @@ The word tad means world in sanskrit.
 
 Features:
 
-* Reads reports created by the vacana lib report bundles
+* Reads reports created by the [vacana lib](https://github.com/smotti/cfengine-vacana) report bundles
     * Host info report
     * Classes
     * Promises
