@@ -2,6 +2,8 @@
 
 An IRC bot that provides information about an autonomous CFEngine node.
 
+The word tad means world in sanskrit.
+
 Features:
 
 * Reads reports created by the vacana lib report bundles
