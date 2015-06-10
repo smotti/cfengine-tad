@@ -90,13 +90,16 @@ func (p *Promises) Watch(c chan *irc.Message) {
 			}
 			// Check if new and old sum differ.
 			if !bytes.Equal(newSum, p.Checksum) {
-				p.Checksum = newSum // Set new sum.
-				p.Read()            // Reread the report.
-				log.Println("Checksum changed for", p.Filename)
-				c <- &irc.Message{ // Send message to irc server.
-					Command:  irc.PRIVMSG,
-					Params:   []string{*config.Channels},
-					Trailing: "Checksum changed for " + p.Filename,
+				if err := p.Read(); err != nil {
+					log.Println("Error:", err)
+				} else {
+					p.Checksum = newSum
+					log.Println("Checksum changed for", p.Filename)
+					c <- &irc.Message{ // Send message to irc server.
+						Command:  irc.PRIVMSG,
+						Params:   []string{*config.Channels},
+						Trailing: "Checksum changed for " + p.Filename,
+					}
 				}
 			}
 

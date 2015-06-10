@@ -122,13 +122,18 @@ func (hi *HostInfo) Watch(c chan *irc.Message) {
 			}
 			// Check if new and old sum differ.
 			if !bytes.Equal(newSum, hi.Checksum) {
-				hi.Checksum = newSum // Set new sum.
-				hi.Read()            // Reread the report.
-				log.Println("Checksum changed for", hi.Filename)
-				c <- &irc.Message{ // Send message to irc server.
-					Command:  irc.PRIVMSG,
-					Params:   []string{*config.Channels},
-					Trailing: "Checksum changed for " + hi.Filename,
+				// Reread the report.
+				if err := hi.Read(); err != nil {
+					log.Println("Error:", err)
+				} else {
+					hi.Checksum = newSum
+
+					log.Println("Checksum changed for", hi.Filename)
+					c <- &irc.Message{ // Send message to irc server.
+						Command:  irc.PRIVMSG,
+						Params:   []string{*config.Channels},
+						Trailing: "Checksum changed for " + hi.Filename,
+					}
 				}
 			}
 
