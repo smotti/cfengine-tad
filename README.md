@@ -50,7 +50,7 @@ Usage of ./tad:
   -watchInterval=1s: Interval when to check files in watch dir (in seconds)
 ```
 
-All flags can also be specified in a .ini file and provided to the bot via the
+All flags can also be specified within an ini-file and provided to the bot via the
 -config flag.
 NOTE: That by default the bot only responds to commands send via private query.
 
@@ -59,3 +59,30 @@ NOTE: That by default the bot only responds to commands send via private query.
 * !os
     * Display the following data about the hosts OS: arch, flavor, os, release,
       uptime, version
+* !cfe
+    * Display data about the hosts CFEngine installation: bootstrappedTo,
+      lastAgentRun, policyLastUpdate, policyReleaseId
+* !id
+    * Display data about the host's identity: fqdn (fully quallified domain
+      name), id (md5 calculated by cfengine), uqdn (unique quallified domain
+      name)
+* !net if
+    * Display the host's network interface with: ipv4 (address), flags, mac,
+      name
+* !net ports
+    * Display a list of listening ports: inet (ipv4 or ipv6), port, protocol
+    * Note currently only tcp ports are listed because cfengine seems to have
+      problems with fetching a list of udp ports
+* !sw
+    * Display a list of all installed packages: arch, method, name, version
+    * NOTE: This list can be quite large
+* !sw <pattern>
+    * Search for software packages by name that match the pattern
+* !cl
+    * Display a list of classes defined during the last run
+* !cl <pattern>
+    * Search for classes that match the pattern
+* !p
+    * Display a list of promises: class, handler, promiser, promisee, outcome
+* !p <pattern>
+    * Search promises for pattern, it will search all fields for the pattern
