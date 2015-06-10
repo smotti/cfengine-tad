@@ -12,7 +12,7 @@ import (
 	"github.com/smotti/ircx"
 	"github.com/smotti/tad/config"
 	"github.com/smotti/tad/handle"
-	_ "github.com/smotti/tad/watcher"
+	"github.com/smotti/tad/report"
 )
 
 var (
@@ -55,8 +55,15 @@ func main() {
 		"listenChannel": *config.Listen,
 	}
 
-	// Register command handlers and start callback loop.
+	// Register command handlers.
 	RegisterHandlers(bot)
+
+	// Watch report for changes.
+	for _, v := range report.Reports {
+		go v.Watch(bot.Data)
+	}
+
+	// Start callback loop.
 	bot.CallbackLoop()
 	log.Println("Exiting..")
 }
@@ -128,4 +135,11 @@ func PingHandler(s ircx.Sender, m *irc.Message) {
 // PrivMsgHandler logs incoming PRIVMSGs.
 func PrivMsgHandler(s ircx.Sender, m *irc.Message) {
 	log.Println(m.String())
+	if m.Prefix == nil {
+		s.Send(&irc.Message{
+			Command:  m.Command,
+			Params:   m.Params,
+			Trailing: m.Trailing,
+		})
+	}
 }

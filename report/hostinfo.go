@@ -1,11 +1,15 @@
 package report
 
 import (
+	"bytes"
 	"encoding/json"
+	"log"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/smotti/tad/config"
+	"github.com/sorcix/irc"
 )
 
 type (
@@ -66,6 +70,7 @@ type (
 	// HostInfo defines a set of data (os, software, ...) about a host.
 	HostInfo struct {
 		Filename   string
+		Checksum   []byte
 		Meta       meta               `json:"_meta"`
 		Cfengine   cfengine           `json:"cfengine"`
 		Identity   identity           `json:"identity"`
@@ -78,25 +83,58 @@ type (
 
 // init registers the report at application startup.
 func init() {
+	h, err := calcHashSum(*config.HostInfo)
+	if err != nil {
+		log.Fatalln("Error:", err)
+	}
+
 	var r Report
 	r = &HostInfo{
 		Filename: *config.HostInfo,
+		Checksum: h,
 	}
 
 	Register("hostInfo", r)
 }
 
 // Read implements the Report interface for HostInfo.
-func (h *HostInfo) Read() error {
-	file, err := os.Open(h.Filename)
+func (hi *HostInfo) Read() error {
+	file, err := os.Open(hi.Filename)
 	if err != nil {
 		return err
 	}
 	defer file.Close()
 
-	err = json.NewDecoder(file).Decode(h)
+	err = json.NewDecoder(file).Decode(hi)
 
 	return err
+}
+
+// Watch starts a go routine for the report and watches its source file
+// for changes. It implements the Report interface.
+func (hi *HostInfo) Watch(c chan *irc.Message) {
+	go func() {
+		for {
+			// Calc new hash sum.
+			newSum, err := calcHashSum(hi.Filename)
+			if err != nil {
+				log.Println("Error:", err)
+			}
+			// Check if new and old sum differ.
+			if !bytes.Equal(newSum, hi.Checksum) {
+				hi.Checksum = newSum // Set new sum.
+				hi.Read()            // Reread the report.
+				log.Println("Checksum changed for", hi.Filename)
+				c <- &irc.Message{ // Send message to irc server.
+					Command:  irc.PRIVMSG,
+					Params:   []string{*config.Channels},
+					Trailing: "Checksum changed for " + hi.Filename,
+				}
+			}
+
+			time.Sleep(*config.WatchInterval * time.Second)
+		}
+	}()
 }
 
 // ToString for type _os.

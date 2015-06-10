@@ -2,10 +2,14 @@ package report
 
 import (
 	"bufio"
+	"bytes"
 	"io"
+	"log"
 	"os"
+	"time"
 
 	"github.com/smotti/tad/config"
+	"github.com/sorcix/irc"
 )
 
 type (
@@ -13,14 +17,21 @@ type (
 	Context struct {
 		Filename string
 		Classes  []string
+		Checksum []byte
 	}
 )
 
 // init registers the report at application startup.
 func init() {
+	h, err := calcHashSum(*config.Classes)
+	if err != nil {
+		log.Fatalln("Error:", err)
+	}
+
 	var r Report
 	r = &Context{
 		Filename: *config.Classes,
+		Checksum: h,
 	}
 
 	Register("classes", r)
@@ -34,6 +45,7 @@ func (c *Context) Read() error {
 	}
 	defer file.Close()
 
+	c.Classes = nil
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		c.Classes = append(c.Classes, scanner.Text())
@@ -43,4 +55,31 @@ func (c *Context) Read() error {
 	}
 
 	return nil
+}
+
+// Watch starts a go routine for the report and watches its source file for
+// changes. It implements the Report interface.
+func (co *Context) Watch(c chan *irc.Message) {
+	go func() {
+		for {
+			// Calc new hash sum.
+			newSum, err := calcHashSum(co.Filename)
+			if err != nil {
+				log.Println("Error:", err)
+			}
+			// Check if new and old sum differ.
+			if !bytes.Equal(newSum, co.Checksum) {
+				co.Checksum = newSum // Set new sum.
+				co.Read()            // Reread the report.
+				log.Println("Checksum changed for", co.Filename)
+				c <- &irc.Message{ // Send message to irc server.
+					Command:  irc.PRIVMSG,
+					Params:   []string{*config.Channels},
+					Trailing: "Checksum changed for " + co.Filename,
+				}
+			}
+
+			time.Sleep(*config.WatchInterval * time.Second)
+		}
+	}()
 }
