@@ -60,7 +60,7 @@ func main() {
 
 	// Watch report for changes.
 	for _, v := range report.Reports {
-		go v.Watch(bot.Data)
+		v.Watch(bot.Data)
 	}
 
 	// Start callback loop.

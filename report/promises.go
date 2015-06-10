@@ -81,28 +81,28 @@ func (p *Promises) Read() error {
 // Watch starts a go routine for the report and watches its source file for
 // changes. It implements the Report interface.
 func (p *Promises) Watch(c chan *irc.Message) {
-	//	go func() {
-	for {
-		// Calc new hash sum.
-		newSum, err := calcHashSum(p.Filename)
-		if err != nil {
-			log.Println("Error:", err)
-		}
-		// Check if new and old sum differ.
-		if !bytes.Equal(newSum, p.Checksum) {
-			p.Checksum = newSum // Set new sum.
-			p.Read()            // Reread the report.
-			log.Println("Checksum changed for", p.Filename)
-			c <- &irc.Message{ // Send message to irc server.
-				Command:  irc.PRIVMSG,
-				Params:   []string{*config.Channels},
-				Trailing: "Checksum changed for " + p.Filename,
+	go func() {
+		for {
+			// Calc new hash sum.
+			newSum, err := calcHashSum(p.Filename)
+			if err != nil {
+				log.Println("Error:", err)
 			}
-		}
+			// Check if new and old sum differ.
+			if !bytes.Equal(newSum, p.Checksum) {
+				p.Checksum = newSum // Set new sum.
+				p.Read()            // Reread the report.
+				log.Println("Checksum changed for", p.Filename)
+				c <- &irc.Message{ // Send message to irc server.
+					Command:  irc.PRIVMSG,
+					Params:   []string{*config.Channels},
+					Trailing: "Checksum changed for " + p.Filename,
+				}
+			}
 
-		time.Sleep(*config.WatchInterval * time.Second)
-	}
-	//	}()
+			time.Sleep(*config.WatchInterval * time.Second)
+		}
+	}()
 }
 
 // ToString returns the Promise struct as a string.
