@@ -23,7 +23,7 @@
     }, 
     {
       "flags": "up broadcast running multicast", 
-      "ipv4": "192.168.100.4", 
+      "ipv4": "192.168.100.3", 
       "mac": "08:00:27:c8:05:f9", 
       "name": "eth1"
     }

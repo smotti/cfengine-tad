@@ -22,13 +22,14 @@ type (
 	}
 
 	Promises struct {
-		Filename string
-		Checksum []byte
-		All      []*Promise
-		Kept     []*Promise
-		Repaired []*Promise
-		Failed   []*Promise
-		Unknown  []*Promise
+		Filename   string
+		Checksum   []byte
+		All        []*Promise
+		Kept       []*Promise
+		Repaired   []*Promise
+		Failed     []*Promise
+		Unknown    []*Promise
+		OldModTime time.Time
 	}
 )
 
@@ -39,10 +40,16 @@ func init() {
 		log.Fatalln("Error:", err)
 	}
 
+	fi, err := os.Stat(*config.Promises)
+	if err != nil {
+		log.Println("Error:", err)
+	}
+
 	var r Report
 	r = &Promises{
-		Filename: *config.Promises,
-		Checksum: h,
+		Filename:   *config.Promises,
+		Checksum:   h,
+		OldModTime: fi.ModTime(),
 	}
 
 	Register("promises", r)
@@ -66,6 +73,7 @@ func (p *Promises) Read() error {
 		return err
 	}
 
+	p.All = nil
 	p.Unknown = nil
 	p.Kept = nil
 	p.Repaired = nil
@@ -101,22 +109,31 @@ func (p *Promises) Read() error {
 func (p *Promises) Watch(c chan *irc.Message) {
 	go func() {
 		for {
-			// Calc new hash sum.
-			newSum, err := calcHashSum(p.Filename)
-			if err != nil {
-				log.Println("Error:", err)
+			// Continuously watch file but only check hash sum if ModTime
+			// changed.
+			fi, err := os.Stat(p.Filename)
+			if os.IsNotExist(err) {
+				continue
 			}
-			// Check if new and old sum differ.
-			if !bytes.Equal(newSum, p.Checksum) {
-				if err := p.Read(); err != nil {
+
+			if fi.ModTime().After(p.OldModTime) {
+				// Calc new hash sum.
+				newSum, err := calcHashSum(p.Filename)
+				if err != nil {
 					log.Println("Error:", err)
-				} else {
-					p.Checksum = newSum
-					log.Println("Checksum changed for", p.Filename)
-					c <- &irc.Message{ // Send message to irc server.
-						Command:  irc.PRIVMSG,
-						Params:   []string{*config.Channels},
-						Trailing: "Checksum changed for " + p.Filename,
+				}
+				// Check if new and old sum differ.
+				if !bytes.Equal(newSum, p.Checksum) {
+					if err := p.Read(); err != nil {
+						log.Println("Error:", err)
+					} else {
+						p.Checksum = newSum
+						log.Println("Checksum changed for", p.Filename)
+						c <- &irc.Message{ // Send message to irc server.
+							Command:  irc.PRIVMSG,
+							Params:   []string{*config.Channels},
+							Trailing: "Checksum changed for " + p.Filename,
+						}
 					}
 				}
 			}

@@ -15,9 +15,10 @@ import (
 type (
 	// Context defines a report about CFEngine defined classes.
 	Context struct {
-		Filename string
-		Classes  []string
-		Checksum []byte
+		Filename   string
+		Classes    []string
+		Checksum   []byte
+		OldModTime time.Time
 	}
 )
 
@@ -62,25 +63,34 @@ func (c *Context) Read() error {
 func (co *Context) Watch(c chan *irc.Message) {
 	go func() {
 		for {
-			// Calc new hash sum.
-			newSum, err := calcHashSum(co.Filename)
-			if err != nil {
-				log.Println("Error:", err)
+			// Continuously watch file but only check hash sum if ModTime
+			// changed.
+			fi, err := os.Stat(co.Filename)
+			if os.IsNotExist(err) {
+				continue
 			}
-			// Check if new and old sum differ.
-			if !bytes.Equal(newSum, co.Checksum) {
-				// Reread the report.
-				if err := co.Read(); err != nil {
-					log.Println("Error:", err)
-				} else {
-					// Set new checksum.
-					co.Checksum = newSum
 
-					log.Println("Checksum changed for", co.Filename)
-					c <- &irc.Message{ // Send message to irc server.
-						Command:  irc.PRIVMSG,
-						Params:   []string{*config.Channels},
-						Trailing: "Checksum changed for " + co.Filename,
+			if fi.ModTime().After(co.OldModTime) {
+				// Calc new hash sum.
+				newSum, err := calcHashSum(co.Filename)
+				if err != nil {
+					log.Println("Error:", err)
+				}
+				// Check if new and old sum differ.
+				if !bytes.Equal(newSum, co.Checksum) {
+					// Reread the report.
+					if err := co.Read(); err != nil {
+						log.Println("Error:", err)
+					} else {
+						// Set new checksum.
+						co.Checksum = newSum
+
+						log.Println("Checksum changed for", co.Filename)
+						c <- &irc.Message{ // Send message to irc server.
+							Command:  irc.PRIVMSG,
+							Params:   []string{*config.Channels},
+							Trailing: "Checksum changed for " + co.Filename,
+						}
 					}
 				}
 			}

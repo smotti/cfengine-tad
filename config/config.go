@@ -17,7 +17,7 @@ var (
 	Promises = flag.String("promises", "./data/promises_outcome.log", "Path to promises report")
 	Classes  = flag.String("classes", "./data/classes.log", "Path to classes report")
 	//	WatchDir      = flag.String("watchDir", "./data/", "Path to dir whose files should be watch for changes")
-	WatchInterval = flag.Duration("watchInterval", time.Duration(60), "Interval when to check files in watch dir (in seconds)")
+	WatchInterval = flag.Duration("watchInterval", time.Duration(1), "Interval when to check files in watch dir (in seconds)")
 )
 
 func init() {
