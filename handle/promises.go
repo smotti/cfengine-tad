@@ -18,7 +18,7 @@ import (
 func CmdPList(s ircx.Sender, m *irc.Message) {
 	r := report.Reports["promises"].(*report.Promises)
 
-	for _, v := range r.List {
+	for _, v := range r.All {
 		s.Send(&irc.Message{
 			Command:  irc.PRIVMSG,
 			Params:   Params(m),
@@ -36,7 +36,7 @@ func CmdPSearch(s ircx.Sender, m *irc.Message) {
 
 	search := strings.Split(m.Trailing, " ")[1]
 
-	for _, v := range r.List {
+	for _, v := range r.All {
 		mclass, err := regexp.MatchString(search, v.Class)
 		if err != nil {
 			log.Println("Error:", err)

@@ -23,8 +23,12 @@ type (
 
 	Promises struct {
 		Filename string
-		List     []*Promise
 		Checksum []byte
+		All      []*Promise
+		Kept     []*Promise
+		Repaired []*Promise
+		Failed   []*Promise
+		Unknown  []*Promise
 	}
 )
 
@@ -62,17 +66,31 @@ func (p *Promises) Read() error {
 		return err
 	}
 
-	p.List = nil
+	p.Unknown = nil
+	p.Kept = nil
+	p.Repaired = nil
+	p.Failed = nil
 	for _, record := range records {
-		p.List = append(
-			p.List,
-			&Promise{
-				Class:    record[0],
-				Handler:  record[1],
-				Promiser: record[2],
-				Promisee: record[3],
-				Outcome:  record[4],
-			})
+		promise := &Promise{
+			Class:    record[0],
+			Handler:  record[1],
+			Promiser: record[2],
+			Promisee: record[3],
+			Outcome:  record[4],
+		}
+
+		p.All = append(p.All, promise)
+
+		switch record[4] {
+		default:
+			p.Unknown = append(p.Unknown, promise)
+		case "kept":
+			p.Kept = append(p.Kept, promise)
+		case "repaired":
+			p.Repaired = append(p.Repaired, promise)
+		case "failed":
+			p.Failed = append(p.Failed, promise)
+		}
 	}
 
 	return nil
@@ -106,6 +124,11 @@ func (p *Promises) Watch(c chan *irc.Message) {
 			time.Sleep(*config.WatchInterval * time.Second)
 		}
 	}()
+}
+
+// Notify starts a go routine to send notifications about repaired and failed
+// promises to irc every config.notifyInterval.
+func (p *Promises) Notify(c chan *irc.Message) {
 }
 
 // ToString returns the Promise struct as a string.
