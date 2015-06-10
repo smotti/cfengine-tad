@@ -137,8 +137,7 @@ func (p *Promises) Watch(c chan *irc.Message) {
 					}
 				}
 			}
-
-			time.Sleep(*config.WatchInterval * time.Second)
+			time.Sleep(*config.WatchInterval)
 		}
 	}()
 }
@@ -148,7 +147,7 @@ func (p *Promises) Watch(c chan *irc.Message) {
 func (p *Promises) Notify(c chan *irc.Message) {
 	go func() {
 		for {
-			time.Sleep(*config.NotifyInterval * time.Second)
+			time.Sleep(*config.NotifyInterval)
 
 			if *config.NotifyRepaired {
 				for _, v := range p.Repaired {

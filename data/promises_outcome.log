@@ -1,2 +1,2 @@
-_var_cfengine_vacana_host_info_client_reports; va_inventory_client_get_files_client_report_dir; /var/cfengine/vacana/host_info/client_reports; va_inventory_client_get; failed
+_var_cfengine_vacana_host_info_client_reports; va_inventory_client_get_files_client_report_dir; /var/cfengine/vacana/host_info/client_reports; va_inventory_client_get; kept
 _var_cfengine_vacana_host_info; va_inventory_client_get_files_report_dir; /var/cfengine/vacana/host_info; va_inventory_client_get; repaired

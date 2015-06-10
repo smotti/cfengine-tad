@@ -95,7 +95,7 @@ func (co *Context) Watch(c chan *irc.Message) {
 				}
 			}
 
-			time.Sleep(*config.WatchInterval * time.Second)
+			time.Sleep(*config.WatchInterval)
 		}
 	}()
 }
