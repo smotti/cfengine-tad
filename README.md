@@ -52,9 +52,10 @@ Usage of ./tad:
 
 All flags can also be specified in a .ini file and provided to the bot via the
 -config flag.
+NOTE: That by default the bot only responds to commands send via private query.
 
 # Commands
 
 * !os
-  * Display the following data about the hosts OS: arch, flavor, os, release,
-    uptime, version
+    * Display the following data about the hosts OS: arch, flavor, os, release,
+      uptime, version
