@@ -18,6 +18,7 @@ var (
 	Classes  = flag.String("classes", "./data/classes.log", "Path to classes report")
 	//	WatchDir      = flag.String("watchDir", "./data/", "Path to dir whose files should be watch for changes")
 	WatchInterval  = flag.Duration("watchInterval", time.Duration(1)*time.Second, "Interval when to check files in watch dir (in seconds)")
+	WatchReports   = flag.Bool("watchReports", false, "Watch report files for change every watchInterval and notify if changed")
 	NotifyInterval = flag.Duration("notifyInterval", time.Duration(300)*time.Second, "Interval on when to notify about repaired and/or failed promises")
 	NotifyRepaired = flag.Bool("notifyRepaired", true, "Notify about repaired promises")
 	NotifyFailed   = flag.Bool("notifyFailed", true, "Notify about failed promises")
