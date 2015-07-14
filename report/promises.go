@@ -128,11 +128,13 @@ func (p *Promises) Watch(c chan *irc.Message) {
 						log.Println("Error:", err)
 					} else {
 						p.Checksum = newSum
-						log.Println("Checksum changed for", p.Filename)
-						c <- &irc.Message{ // Send message to irc server.
-							Command:  irc.PRIVMSG,
-							Params:   []string{*config.Channels},
-							Trailing: "Checksum changed for " + p.Filename,
+						if *config.WatchReports {
+							log.Println("Checksum changed for", p.Filename)
+							c <- &irc.Message{ // Send message to irc server.
+								Command:  irc.PRIVMSG,
+								Params:   []string{*config.Channels},
+								Trailing: "Checksum changed for " + p.Filename,
+							}
 						}
 					}
 				}

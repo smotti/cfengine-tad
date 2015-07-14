@@ -60,9 +60,7 @@ func main() {
 
 	// Watch report for changes.
 	for _, v := range report.Reports {
-		if *config.WatchReports {
-			v.Watch(bot.Data)
-		}
+		v.Watch(bot.Data)
 
 		switch v.(type) {
 		case *report.Promises:

@@ -137,11 +137,13 @@ func (hi *HostInfo) Watch(c chan *irc.Message) {
 					} else {
 						hi.Checksum = newSum
 
-						log.Println("Checksum changed for", hi.Filename)
-						c <- &irc.Message{ // Send message to irc server.
-							Command:  irc.PRIVMSG,
-							Params:   []string{*config.Channels},
-							Trailing: "Checksum changed for " + hi.Filename,
+						if *config.WatchReports {
+							log.Println("Checksum changed for", hi.Filename)
+							c <- &irc.Message{ // Send message to irc server.
+								Command:  irc.PRIVMSG,
+								Params:   []string{*config.Channels},
+								Trailing: "Checksum changed for " + hi.Filename,
+							}
 						}
 					}
 				}

@@ -85,11 +85,13 @@ func (co *Context) Watch(c chan *irc.Message) {
 						// Set new checksum.
 						co.Checksum = newSum
 
-						log.Println("Checksum changed for", co.Filename)
-						c <- &irc.Message{ // Send message to irc server.
-							Command:  irc.PRIVMSG,
-							Params:   []string{*config.Channels},
-							Trailing: "Checksum changed for " + co.Filename,
+						if *config.WatchReports {
+							log.Println("Checksum changed for", co.Filename)
+							c <- &irc.Message{ // Send message to irc server.
+								Command:  irc.PRIVMSG,
+								Params:   []string{*config.Channels},
+								Trailing: "Checksum changed for " + co.Filename,
+							}
 						}
 					}
 				}
